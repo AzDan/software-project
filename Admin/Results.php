@@ -89,7 +89,7 @@ if ($result->num_rows > 0) {
 </div>
 
 <footer>
-  <p>Copyright 2016-2020 by VG corporation. All Rights Reserved.</p>
+  <p>Copyright 2019 by S Corp. All Rights Reserved.</p>
 </footer>
 
 </body>

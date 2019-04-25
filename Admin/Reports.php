@@ -18,10 +18,9 @@
 		</div>
 		<ul>
 			<li><a href="Add Events.html">Add Events</a></li>
-			<li><a href="Edit Events.php"">Edit Events</a></li>
+			<li><a href="Edit Events.php">Edit Events</a></li>
 			<li><a href="#" style="color:red;">Reports</a></li>
 			<li><a href="Results.php" >Results</a></li>
-
 
 		</ul>
 	</nav>
@@ -93,7 +92,7 @@ $conn->close();
 </div>
 
 <footer>
-  <p>Copyright 2016-2020 by VG corporation. All Rights Reserved.</p>
+  <p>Copyright 2019 by S Corp. All Rights Reserved.</p>
 </footer>
 
 </body>
