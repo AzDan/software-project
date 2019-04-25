@@ -51,14 +51,12 @@ Event name:
 <?php
 
 
-$sql = "SELECT * FROM event where status='ongoing'";
+$sql = "SELECT * FROM event;";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-
     while($row = $result->fetch_assoc()) {
-
         echo '<option value="'.$row["event_name"].'">'.$row["event_name"].'</option>';
     }
 } else {

@@ -2,6 +2,7 @@
   include 'db.php';
 
   if(isset($_POST['submitbtn'])){
+    $a=0;
     $first_name = $_POST['fname'];
     $last_name = $_POST['lname'];
     $email = $_POST['email'];
@@ -9,14 +10,23 @@
     $branch = $_POST['branch'];
     $password = $_POST['pword'];
     $hashed = hash('sha1',$password);
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+      $a=1;
+    }
+    else{
     $query = "INSERT INTO login VALUES('$reg_no','$hashed','$email','$branch','$first_name','$last_name');";
       if(mysqli_query($conn,$query)) {
         header('Location: login.php');
         exit;
       }
       else {
-        echo "Error connecting to database";
+        echo "Already registered.";
       }
+    }
+    if($a==1){
+    $errormsg="Invalid email";
+    echo "<script type='text/javascript'>alert('$errormsg')</script>";
+    }
     mysqli_close($conn);
   }
 ?>

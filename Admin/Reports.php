@@ -22,20 +22,20 @@
 			<li><a href="#" style="color:red;">Reports</a></li>
 			<li><a href="Results.php" >Results</a></li>
 
+
 		</ul>
 	</nav>
 
 <div class="col-12">
   <h1>Reports</h1>
  <div style="width:100%;border-style:solid; border-radius:10px;text-align:center;border-color:#0000ff">
- <form action="" method="post">
+ <form action="Reports.php" method="post">
 Type:<select name="type" class="smalltext">
   <option value="indoor">Indoor</option>
   <option value="outdoor">Outdoor</option>
 </select>
 Event Name:<select name="event" class="smalltext">
-  <option value="cricket">Cricket</option>
-  <option value="football">Football</option>
+
 </select><br><br>
 
  <input type="submit" value="GET Report">
@@ -50,7 +50,7 @@ Event Name:<select name="event" class="smalltext">
 <th>Contact</th>
 </tr>
 <?php
-error_reporting(0);
+//error_reporting(0);
 $event_name = $_POST['event'];
 $type= $_POST['type'];
 $servername = "localhost";
@@ -85,6 +85,7 @@ echo '</tr>';
 $conn->close();
 
 ?>
+
   </table>
 </div>
 
@@ -92,7 +93,7 @@ $conn->close();
 </div>
 
 <footer>
-  <p>Copyright 2019 by S Corp. All Rights Reserved.</p>
+  <p>Copyright 2016-2020 by VG corporation. All Rights Reserved.</p>
 </footer>
 
 </body>
