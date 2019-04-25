@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 04, 2017 at 07:23 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Host: 127.0.0.1:3306
+-- Generation Time: Apr 25, 2019 at 02:19 PM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,9 +28,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(20) NOT NULL,
+  PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -44,15 +48,17 @@ INSERT INTO `admin` (`username`, `password`) VALUES
 -- Table structure for table `entry`
 --
 
-CREATE TABLE `entry` (
-  `id` int(20) NOT NULL,
+DROP TABLE IF EXISTS `entry`;
+CREATE TABLE IF NOT EXISTS `entry` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
   `event` varchar(50) NOT NULL,
   `type` varchar(20) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `class` varchar(10) NOT NULL,
-  `contact` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `contact` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `entry`
@@ -75,16 +81,18 @@ INSERT INTO `entry` (`id`, `event`, `type`, `username`, `email`, `class`, `conta
 -- Table structure for table `event`
 --
 
-CREATE TABLE `event` (
-  `id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE IF NOT EXISTS `event` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `event_name` varchar(30) NOT NULL,
   `type` varchar(20) NOT NULL,
   `description` varchar(100) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `time` time NOT NULL,
-  `status` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `event`
@@ -102,14 +110,23 @@ INSERT INTO `event` (`id`, `event_name`, `type`, `description`, `start_date`, `e
 -- Table structure for table `login`
 --
 
-CREATE TABLE `login` (
-  `id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `login`;
+CREATE TABLE IF NOT EXISTS `login` (
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `email` varchar(40) NOT NULL,
-  `contact` int(10) NOT NULL,
-  `class` varchar(10) NOT NULL
+  `class` varchar(10) NOT NULL,
+  `fname` varchar(20) DEFAULT NULL,
+  `lname` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`username`, `password`, `email`, `class`, `fname`, `lname`) VALUES
+('20164126', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'vrocks98@gmail.com', 'cse', 'Shryesh', 'Khandelwal');
 
 -- --------------------------------------------------------
 
@@ -117,16 +134,18 @@ CREATE TABLE `login` (
 -- Table structure for table `result1`
 --
 
-CREATE TABLE `result1` (
-  `id` int(20) NOT NULL,
+DROP TABLE IF EXISTS `result1`;
+CREATE TABLE IF NOT EXISTS `result1` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
   `eventname` varchar(30) NOT NULL,
   `win1` varchar(30) NOT NULL,
   `w1class` varchar(10) NOT NULL,
   `win2` varchar(30) NOT NULL,
   `w2class` varchar(10) NOT NULL,
   `win3` varchar(30) NOT NULL,
-  `w3class` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `w3class` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `result1`
@@ -135,66 +154,8 @@ CREATE TABLE `result1` (
 INSERT INTO `result1` (`id`, `eventname`, `win1`, `w1class`, `win2`, `w2class`, `win3`, `w3class`) VALUES
 (3, 'football', 'vaibhav gaikwad', 'd15', 'jai hinduja', 'd13', 'aniket', 'd14'),
 (4, 'cricket', 'vaibhav gaikwad', 'd15', 'jai hinduja', 'd13', 'kalpesh deepak juvekar', 'd13');
+COMMIT;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`username`);
-
---
--- Indexes for table `entry`
---
-ALTER TABLE `entry`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `event`
---
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`username`),
-  ADD KEY `id` (`id`);
-
---
--- Indexes for table `result1`
---
-ALTER TABLE `result1`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `entry`
---
-ALTER TABLE `entry`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `event`
---
-ALTER TABLE `event`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `result1`
---
-ALTER TABLE `result1`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
