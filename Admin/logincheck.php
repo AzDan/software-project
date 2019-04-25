@@ -1,37 +1,19 @@
 <?php
-$myusername = $_POST['u'];
-$mypassword = $_POST['p'];
-$servername = "localhost";
-$username = 'root';
-$password = '';
-$dbname = "sportpro";
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-//echo "Connected successfully";
+include ('../Student/db.php');
 
-$sql = "SELECT username FROM admin WHERE username = '$myusername' and password = '$mypassword'";
-$result =$conn->query($sql);
-$num_rows = mysqli_num_rows($result);
-if($num_rows==1)
-{
+  $myusername = $_POST['u'];
+  $mypassword = $_POST['p'];
 
- echo'<script> window.location="Add Events.html"; </script> ';
-//echo $num_rows;
-}
-
-else
-{
-	
-echo '<script type="text/javascript">'; 
-echo 'alert("Invalid username or password");'; 
-echo 'window.location.href = "login.html";';
-echo '</script>';  
-	
-}
+  $sql = "SELECT * FROM admin WHERE username = '$myusername' and password = '$mypassword';";
+  if(mysqli_query($conn,$sql))
+  {
+   header('Location: Add events.html');
+  //echo $num_rows;
+  }
+  else
+  {
+    echo 'ERROR';
+  }
 
 $conn->close();
 ?>

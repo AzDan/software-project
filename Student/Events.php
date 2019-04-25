@@ -16,6 +16,7 @@ ga('send', 'pageview');
 
 <header>
 <img src="http://vectorlogofree.com/wp-content/uploads/2013/01/canadian-olympic-team-logo-vector-400x400.png" width="100px" height="80px">
+<a href="login.php" style="float:right;">LOGOUT</a>
 <h1 class="liketext">SportPro</h1>
 
 </header>
@@ -24,20 +25,20 @@ ga('send', 'pageview');
 
 <nav>
 		<div class="menu-icon">
-			
+
 		</div>
 		<ul>
 			<li><a href="index.html">Home</a></li>
 			<li><a href="#" style="color:red;">Events</a></li>
 			<li><a href="Results_stud.php">Results</a></li>
 			<li><a href="About us.html">About us</a></li>
-		
-			
+
+
 		</ul>
 	</nav>
 <div class="col-12">
 <center>
-  <h1>Events</h1>                          
+  <h1>Events</h1>
 
 <?php
 $servername = "localhost";
@@ -49,7 +50,7 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 //echo "Connected successfully";
 // Check connection
 $sql = "SELECT * FROM event where status='ongoing' ORDER BY end_date asc";
@@ -60,7 +61,7 @@ if ($result->num_rows > 0) {
 		echo '<div style="align:center; box-shadow: 10px 10px 5px #888888; padding-left:10px;border:1px; border-radius:5px;background-color:#d6e4f9"><form action="register.php" method="post">';
         echo "<br><b>Event Name: </b>" . $row["event_name"]."<br> <b>Type: </b>" . $row["type"]. "<br> <b>Description:</b> " . $row["description"]."<br><b> Registration Last Date: </b>" . $row["end_date"]."<br><b> Timing:</b> " . $row["time"];
 		echo '<input type="hidden" name="event" value='.$row["event_name"].'><input type="hidden" name="type" value='.$row["type"].'>';
-		echo '<br><input type="submit" value="register"><br><br></form></div><br><br>';  
+		echo '<br><input type="submit" value="register"><br><br></form></div><br><br>';
 
   }
 } else {
@@ -68,7 +69,7 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
-  
+
 
 
 </div>

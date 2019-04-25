@@ -7,7 +7,7 @@ $dbname = "sportpro";
 $conn = new mysqli($servername, $username, $password,$dbname);// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 //echo "Connected successfully";
 // Check connection
 $sql = "SELECT * FROM result1";
@@ -32,6 +32,7 @@ ga('send', 'pageview');
 
 <header>
 <img src="http://vectorlogofree.com/wp-content/uploads/2013/01/canadian-olympic-team-logo-vector-400x400.png" width="100px" height="80px">
+<a href="login.php" style="float:right;">LOGOUT</a>
 <h1 class="liketext">SportPro</h1>
 </header>
 
@@ -39,19 +40,19 @@ ga('send', 'pageview');
 
 <nav>
 		<div class="menu-icon">
-			
+
 		</div>
 		<ul>
 			<li><a href="index.html">Home</a></li>
 			<li><a href="Events.php">Events</a></li>
 			<li><a href="#" style="color:red;">Results</a></li>
 			<li><a href="About us.html">About us</a></li>
-		
-			
+
+
 		</ul>
 	</nav>
 <div class="col-12">
-  <h1>Results</h1>                          
+  <h1>Results</h1>
 <table>
 <table>
 <tr>
@@ -67,7 +68,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 		echo '<tr>';
         echo "<td>" . $row["eventname"]."</td><td>" . $row["win1"]. " (".$row["w1class"].")</td><td>" . $row["win2"]. " (".$row["w2class"].")</td><td>" . $row["win3"]. " (".$row["w3class"].")</td>";
-echo '</tr>';  
+echo '</tr>';
 
   }
 } else {
@@ -75,9 +76,9 @@ echo '</tr>';
 }
 $conn->close();
 ?>
-  
+
   </table>
-  
+
   </table>
   <center>
   <img src="https://t4.ftcdn.net/jpg/01/08/89/47/240_F_108894716_XTAQTSuU1B1kmM7w9CqL0wEJI7TjAOXY.jpg" width="40%;">
