@@ -147,7 +147,7 @@
 
 <div class="header" style="margin-left:40%;">
 <img src="http://vectorlogofree.com/wp-content/uploads/2013/01/canadian-olympic-team-logo-vector-400x400.png" width="115px" height="115px">
-<a href="../Admin/index.html" style="float:right;">ADMIN LOGIN</a>
+<a href="../Admin/index.php" style="float:right;">ADMIN LOGIN</a>
 <h1 class="liketext">SportPro</h1>
 </div>
 

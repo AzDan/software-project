@@ -19,27 +19,27 @@ ga('send', 'pageview');
 <img src="http://vectorlogofree.com/wp-content/uploads/2013/01/canadian-olympic-team-logo-vector-400x400.png" width="100px" height="80px">
 <h1 class="liketext">SportPro
 
-<a href ="index.html"> <input type="button" value="Logout" style="float:right;"></a></h1>
+<a href ="index.php"> <input type="button" value="Logout" style="float:right;"></a></h1>
 </header>
 
 <div class="row">
 <nav>
 		<div class="menu-icon">
-			
+
 		</div>
 		<ul>
 			<li><a href="#" style="color:red;">Add Events</a></li>
 			<li><a href="Edit Events.php">Edit Events</a></li>
 			<li><a href="Reports.php">Reports</a></li>
 			<li><a href="Results.php" >Results</a></li>
-		
-			
+
+
 		</ul>
 	</nav>
-               
+
 <div class="col-12">
 <div style="padding-left:2%;width:100%;border-style:solid; border-radius:10px;border-color:#0000ff">
-  <center><h1>Add Events</h1></center>                          
+  <center><h1>Add Events</h1></center>
 
 <form action="addevent.php" method="post">
 Event name:
@@ -49,13 +49,13 @@ Type: <select name="type" required class="smalltext">
   <option value="outoor">Outdoor</option>
 
 </select><br><br>
-Description:                                                                      
+Description:
 <input type="text" name="description" required class="bigtext"><br><br>
-  Start Date:  
+  Start Date:
 <input type="date" name="start_date" required class="smalltext">
-  End Date:  
+  End Date:
 <input type="date" name="end_date" required class="smalltext"><br><br>
-Event Time:  
+Event Time:
 <input type="time" name="time" required class="smalltext"><br><br>
 <center><input type="submit" value="Submit"></center>
 </form>

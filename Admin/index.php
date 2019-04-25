@@ -1,3 +1,41 @@
+<?php
+include ('../Student/db.php');
+
+if(isset($_POST['loginbtn'])){
+
+  $myusername = $_POST['u'];
+  $mypassword = $_POST['p'];
+
+  $sql = "SELECT * FROM admin WHERE username = '$myusername' and password = '$mypassword';";
+  if ($res=mysqli_query($conn, $sql)) {
+    foreach ($res as $row) {
+      $data[]=$row;
+    }
+  }
+  else {
+      echo " ";
+  }
+  $r3=$res->num_rows;
+  if($r3>0){
+    if ($data[0]['username']==$myusername && $data[0]['password']==$mypassword) {
+      //$_SESSION['login_user']=$username;
+      header('Location: Add Events.html');
+      exit;
+    }
+    else{
+      $errormsg="Incorrect username password combo!";
+      echo "<script type='text/javascript'>alert('$errormsg')</script>";
+    }
+  }
+  else{
+  $errormsg="Incorrect username password combo!";
+  echo "<script type='text/javascript'>alert('$errormsg')</script>";
+  }
+$conn->close();
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,10 +67,10 @@ ga('send', 'pageview');
 <div style="width:100%;border-style:solid; border-radius:10px;text-align:center;border-color:#0000ff">
  <h2 class="liketext">Login!</h2>
 
-    <form action="logincheck.php" method="post">
+    <form action="index.php" method="post">
       <input type="text" name="u" id="username" placeholder="username" class="bigtext"required /><br><br>
       <input type="password" name="p" id="password" placeholder="password" required class="bigtext" /><br><br>
-      <input type="submit" value="Login"/>
+      <input type="submit" name="loginbtn" value="Login"/>
     </form>
 
 	</div>
