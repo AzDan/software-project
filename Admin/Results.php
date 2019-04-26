@@ -35,7 +35,7 @@ if ($conn->connect_error) {
 		<ul>
 			<li><a href="Add Events.html">Add Events</a></li>
 			<li><a href="Edit Events.php">Edit Events</a></li>
-			<li><a href="Reports.php">Results</a></li>
+			<li><a href="Reports.php">Reports</a></li>
 			<li><a href="#" style="color:red;">Results</a></li>
 
 

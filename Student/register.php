@@ -28,15 +28,15 @@ ga('send', 'pageview');
 <div class="row">
 <nav>
 		<div class="menu-icon">
-			
+
 		</div>
 		<ul>
 			<li><a href="index.html">Home</a></li>
 			<li><a href="Events.php">Events</a></li>
 			<li><a href="Results_stud.php">Results</a></li>
 			<li><a href="About us.html">About us</a></li>
-		
-			
+
+
 		</ul>
 	</nav>
 
@@ -45,20 +45,21 @@ ga('send', 'pageview');
  <h2 class="liketext">Registeration Form </h2>
 
     <form action="register_process.php" method="post">
-    <b>Event Name: <input type="text" name="event" id="event" value='<?php echo  $event_name; ?>' readonly class="smalltext"/><br>
-      Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="type" id="event_type" value='<?php echo $type;?>' readonly class="smalltext"/><br>
-	   Full Name: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="fullname" placeholder="Full Name" required class="smalltext"/><font color="red"><b>* </font><br>
-		E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" id="email" placeholder="E-mail" required class="smalltext"/><font color="red"><b>* </font><br>
-		Class: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="class" id="event_type" placeholder="Class" required class="smalltext"/><font color="red"><b>* </font><br>
-		  Contact:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" maxlength="10" name="contact" id="event_type" placeholder="Contact number" required class="smalltext"/><font color="red"><b>* </font><br>
+    <b>
+			Event Name: <input type="text" name="event" id="event" value='<?php echo  $event_name; ?>' readonly class="smalltext"/><br>
+      Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="type" id="event_type" value='<?php echo $type;?>' readonly class="smalltext"/><br>
+	    Full Name: &nbsp;&nbsp;&nbsp;<input type="text" name="name" id="fullname" placeholder="Full Name" required class="smalltext"/><font color="red"><b>* </font><br>
+		  E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" id="email" placeholder="E-mail" required class="smalltext"/><font color="red"><b>* </font><br>
+		  Branch: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="class" id="event_type" placeholder="Branch" required class="smalltext"/><font color="red"><b>* </font><br>
+		  Contact:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" maxlength="10" name="contact" id="event_type" placeholder="Contact number" required class="smalltext"/><font color="red"><b>* </font><br>
      <input type="submit" value="Submit"/>
 	  </b>
-  
+
 	</table>
 	</div>
 </div>
-  
- 
+
+
 </div>
 
 

@@ -1,3 +1,17 @@
+<?php
+$servername = "localhost";
+$username = 'root';
+$password = '';
+$dbname = "sportpro";
+$conn = new mysqli($servername, $username, $password,$dbname);//echo $event_name;
+//echo $type;
+
+// Check connection
+if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+}
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,10 +49,26 @@ Type:<select name="type" class="smalltext">
   <option value="outdoor">Outdoor</option>
 </select>
 Event Name:<select name="event" class="smalltext">
+	<?php
+
+
+	$sql = "SELECT * FROM event;";
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+	    // output data of each row
+	    while($row = $result->fetch_assoc()) {
+	        echo '<option value="'.$row["event_name"].'">'.$row["event_name"].'</option>';
+	    }
+	} else {
+	    echo "0 results";
+	}
+
+	?>
 
 </select><br><br>
 
- <input type="submit" value="GET Report">
+ <input type="submit" name="submitbtn" value="GET Report">
 </form>
 </div>
 <br><br>
@@ -51,6 +81,7 @@ Event Name:<select name="event" class="smalltext">
 </tr>
 <?php
 //error_reporting(0);
+if(isset($_POST['submitbtn'])){
 $event_name = $_POST['event'];
 $type= $_POST['type'];
 $servername = "localhost";
@@ -68,19 +99,21 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 // Check connection
 //$sql = "SELECT * FROM entry where event='$event_name' AND type='$type'";
-$sql = "SELECT * FROM entry where event='$event_name' AND type='$type'";
 
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-		echo '<tr>';
-        echo "<td>" . $row["username"]."</td><td>" . $row["class"]."</td><td>" . $row["email"]."</td><td>" . $row["contact"]."</td>";
-echo '</tr>';
+	$sql = "SELECT * FROM entry where event='$event_name' AND type='$type'";
 
-  }
-} else {
-    echo "0 results";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+	    // output data of each row
+	    while($row = $result->fetch_assoc()) {
+			echo '<tr>';
+	        echo "<td>" . $row["username"]."</td><td>" . $row["class"]."</td><td>" . $row["email"]."</td><td>" . $row["contact"]."</td>";
+	echo '</tr>';
+
+	  }
+	} else {
+	    echo "0 results";
+	}
 }
 $conn->close();
 

@@ -58,7 +58,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-		echo '<div style="align:center; box-shadow: 10px 10px 5px #888888; padding-left:10px;border:1px; border-radius:5px;background-color:#d6e4f9"><form action="register.php" method="post">';
+		echo '<div style="align:center; box-shadow: 10px 10px 5px #888888; padding-left:10px;border:1px; border-radius:5px;background-color:#d6e4f9;color:black"><form action="register.php" method="post">';
         echo "<br><b>Event Name: </b>" . $row["event_name"]."<br> <b>Type: </b>" . $row["type"]. "<br> <b>Description:</b> " . $row["description"]."<br><b> Registration Last Date: </b>" . $row["end_date"]."<br><b> Timing:</b> " . $row["time"];
 		echo '<input type="hidden" name="event" value='.$row["event_name"].'><input type="hidden" name="type" value='.$row["type"].'>';
 		echo '<br><input type="submit" value="register"><br><br></form></div><br><br>';

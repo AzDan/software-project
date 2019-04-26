@@ -43,30 +43,30 @@
       <div class="signupinfo">
         <div class="first-last">
           <label for="fname">First Name</label>
-          <input type="text" placeholder="First Name" name="fname" class="ipbox" required>
+          <input type="text" placeholder="First Name" name="fname" class="ipbox" style="margin-left: 8px;" required>
           <br>
           <label for="lname">Last Name</label>
-          <input type="text" placeholder="Last Name" name="lname" class="ipbox" style="margin-left: 80px;" required>
+          <input type="text" placeholder="Last Name" name="lname" class="ipbox" style="margin-left: 10px;" required>
         </div>
           <br>
         <div class="email-pass">
           <label for="email">E-mail</label>
-          <input type="text" placeholder="E-mail" name="email" class="email-box" required>
+          <input type="text" placeholder="E-mail" name="email" class="email-box" style="margin-left: 40px;" required>
         </div>
           <br>
         <div class="reg-no">
           <label for="regno">Registration Number</label>
-          <input type="text" placeholder="Reg. No." name="regno" class="reg-box" required>
+          <input type="text" placeholder="Reg. No." name="regno" class="reg-box" style="margin-left: 93px;" required>
         </div>
           <br>
         <div class="email-pass">
           <label for="pword">Password</label>
-          <input type="password" placeholder="Password" name="pword" class="pass-box" required>
+          <input type="password" placeholder="Password" name="pword" class="pass-box" style="margin-left: 15px;" required>
         </div>
           <br>
           <div class="reg-no" style="margin-left:39px;">
             <label for="branch">Branch</label>
-            <input type="text" placeholder="Branch" name="branch" class="address" required>
+            <input type="text" placeholder="Branch" name="branch" class="address" style="margin-left: 30px;" required>
           </div>
             <br>
           <button type="submit" name="submitbtn" class="signupbtn"><span>SUBMIT</span></button>
